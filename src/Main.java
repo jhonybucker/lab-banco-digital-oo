@@ -15,50 +15,45 @@ public class Main {
         banco.adicionarConta(cc);
         banco.adicionarConta(poupanca);
 
-        Scanner scanner = new Scanner(System.in);
-        int opcao = 0;
-
-        while (opcao != 5) {
-            System.out.println("=== Banco Digital ===");
-            System.out.println("1. Depositar");
-            System.out.println("2. Sacar");
-            System.out.println("3. Transferir");
-            System.out.println("4. Imprimir Extrato");
-            System.out.println("5. Sair");
-            System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    System.out.print("Valor para depositar: ");
-                    double valorDeposito = scanner.nextDouble();
-                    cc.depositar(valorDeposito);
-                    break;
-                case 2:
-                    System.out.print("Valor para sacar: ");
-                    double valorSaque = scanner.nextDouble();
-                    cc.sacar(valorSaque);
-                    break;
-                case 3:
-                    System.out.print("Valor para transferir: ");
-                    double valorTransferencia = scanner.nextDouble();
-                    cc.transferir(valorTransferencia, poupanca);
-                    break;
-                case 4:
-                    cc.imprimirExtrato();
-                    poupanca.imprimirExtrato();
-                    cc.imprimirHistorico();
-                    poupanca.imprimirHistorico();
-                    break;
-                case 5:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida.");
-                    break;
+        try (Scanner scanner = new Scanner(System.in)) {
+            int opcao = 0;
+            
+            while (opcao != 5) {
+                System.out.println("=== Banco Digital ===");
+                System.out.println("1. Depositar");
+                System.out.println("2. Sacar");
+                System.out.println("3. Transferir");
+                System.out.println("4. Imprimir Extrato");
+                System.out.println("5. Sair");
+                System.out.print("Escolha uma opção: ");
+                opcao = scanner.nextInt();
+                
+                switch (opcao) {
+                    case 1 -> {
+                        System.out.print("Valor para depositar: ");
+                        double valorDeposito = scanner.nextDouble();
+                        cc.depositar(valorDeposito);
+                    }
+                    case 2 -> {
+                        System.out.print("Valor para sacar: ");
+                        double valorSaque = scanner.nextDouble();
+                        cc.sacar(valorSaque);
+                    }
+                    case 3 -> {
+                        System.out.print("Valor para transferir: ");
+                        double valorTransferencia = scanner.nextDouble();
+                        cc.transferir(valorTransferencia, poupanca);
+                    }
+                    case 4 -> {
+                        cc.imprimirExtrato();
+                        poupanca.imprimirExtrato();
+                        cc.imprimirHistorico();
+                        poupanca.imprimirHistorico();
+                    }
+                    case 5 -> System.out.println("Saindo...");
+                    default -> System.out.println("Opção inválida.");
+                }
             }
         }
-
-        scanner.close();
     }
 }

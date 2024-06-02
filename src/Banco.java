@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Banco {
     private String nome;
-    private List<Conta> contas = new ArrayList<>();
-    private List<Cliente> clientes = new ArrayList<>();
+    private final List<Conta> contas = new ArrayList<>();
+    private final List<Cliente> clientes = new ArrayList<>();
 
 	public String getNome() {
 		return nome;

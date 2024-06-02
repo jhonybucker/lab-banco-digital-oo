@@ -5,9 +5,9 @@ public abstract class Conta implements IConta {
 	
 	private static final int AGENCIA_PADRAO = 1;
 	private static int SEQUENCIAL = 1;
-    private List<Transacao> historico = new ArrayList<>();
-    private String dispositivo = "APP";
-    private String localizacao = "Pavuna - Rio de Janeiro";
+    private final List<Transacao> historico = new ArrayList<>();
+    private final String dispositivo = "APP";
+    private final String localizacao = "Pavuna - Rio de Janeiro";
 
 	protected int agencia;
 	protected int numero;

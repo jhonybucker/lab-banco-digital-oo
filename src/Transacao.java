@@ -2,11 +2,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Transacao {
-    private String tipo;
-    private double valor;
-    private String dataHora;
-    private String dispositivo;
-    private String localizacao;
+    private final String tipo;
+    private final double valor;
+    private final String dataHora;
+    private final String dispositivo;
+    private final String localizacao;
 
     public Transacao(String tipo, double valor, String dispositivo, String localizacao) {
         this.tipo = tipo;
